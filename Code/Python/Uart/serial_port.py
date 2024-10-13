@@ -1,8 +1,8 @@
-import serial
+import serial   #导入serial
 from time import sleep
 
 #serial setup
-ser = serial.Serial("/dev/serial0",9600,8,'N',1,1)
+ser = serial.Serial("/dev/serial0",115200,8,'N',1,1)
 
 #serial check
 if not ser.isOpen():
@@ -11,11 +11,13 @@ else:
     print("Open Serial Succeess.")
     print(ser)
 
+#定义自动返回函数
 def autoreply():
     try:
         while True:
             #Read data from PC com
             data = ser.read(ser.inWaiting())
+            sleep(0.05)
             if data:
                 #print data
                 print("Recv:",data.decode("utf-8"))
@@ -28,7 +30,7 @@ def autoreply():
         print("User Quit!")
     except serial.SerialException as e:
         print("Serial error:",e)
-        
+#定义手动返回函数        
 def manualreply():
     try:
         indata = str(input("Please intput data:"))
@@ -50,7 +52,7 @@ def manualreply():
         print("User Quit!")
     except serial.SerialException as e:
         print("Serial error:",e)
-        
+#定义仅接收函数   
 def onlyrecv():
     try:
         while True:
@@ -60,7 +62,7 @@ def onlyrecv():
                 #print data
                 print("Recv:",data.decode("utf-8"))
             # delay
-            sleep(0.05)   
+            sleep(0.005)   
     except KeyboardInterrupt:
         print("User Quit!")
     except serial.SerialException as e:
@@ -68,9 +70,9 @@ def onlyrecv():
 
 #this is Main
 while True:
+    # 请输入此程序运行的模式
     print("Hello, This is Serial test program.Please input 'auto/manual/recv'to enter Mode. Enter'q' is quit.\r")
     inway = input("Mode:")
-    print(inway)
     if inway == "auto":
          print("auto replay mode is open.")
          autoreply()
@@ -85,5 +87,6 @@ while True:
         break
     else:
         print("Your input is incorrect!")
+#关闭serial       
 ser.close()
     
