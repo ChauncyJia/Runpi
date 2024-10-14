@@ -1,4 +1,4 @@
-import serial   #导入serial
+import serial #导入serial
 from time import sleep
 
 #serial setup
@@ -27,7 +27,7 @@ def autoreply():
             # delay
             sleep(0.05)   
     except KeyboardInterrupt:
-        print("User Quit!")
+        print("\nUser Quit!")
     except serial.SerialException as e:
         print("Serial error:",e)
 #定义手动返回函数        
@@ -49,7 +49,7 @@ def manualreply():
             # delay
             sleep(0.05)   
     except KeyboardInterrupt:
-        print("User Quit!")
+        print("\nUser Quit!")
     except serial.SerialException as e:
         print("Serial error:",e)
 #定义仅接收函数   
@@ -64,29 +64,33 @@ def onlyrecv():
             # delay
             sleep(0.005)   
     except KeyboardInterrupt:
-        print("User Quit!")
+        print("\nUser Quit!")
     except serial.SerialException as e:
         print("Serial error:",e)
 
 #this is Main
 while True:
-    # 请输入此程序运行的模式
-    print("Hello, This is Serial test program.Please input 'auto/manual/recv'to enter Mode. Enter'q' is quit.\r")
-    inway = input("Mode:")
-    if inway == "auto":
-         print("auto replay mode is open.")
-         autoreply()
-    elif inway == "manual":
-        print("manualreplay mode is open.")
-        manualreply()
-    elif inway == "recv":
-        print("only recv mode is open.")
-        onlyrecv()
-    elif inway =="q":
-        print("your are quit success..")
+    try:
+        # 请输入此程序运行的模式
+        print("Hello, This is Serial test program.Please input 'auto/manual/recv'to enter Mode. Enter'q' is quit.\r")
+        inway = input("Mode:")
+        if inway == "auto":
+            print("auto replay mode is open.")
+            autoreply()
+        elif inway == "manual":
+            print("manualreplay mode is open.")
+            manualreply()
+        elif inway == "recv":
+            print("only recv mode is open.")
+            onlyrecv()
+        elif inway =="q":
+            print("your are quit success..")
+            break
+        else:
+            print("Your input is incorrect!")
+    except KeyboardInterrupt: #键盘中断
+        print("\nUser Quit!")
         break
-    else:
-        print("Your input is incorrect!")
 #关闭serial       
 ser.close()
     
