@@ -22,3 +22,7 @@ cd ..
 echo 516 > unexport
 ls
 ```
+- 监控GPIO
+  ```
+  watch -n 2 gpio read 4  
+  ```
