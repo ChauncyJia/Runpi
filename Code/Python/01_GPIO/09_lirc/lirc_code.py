@@ -1,5 +1,5 @@
 import lirc
-sockid = lirc.init("myprogram", "lircrc")
+sockid = lirc.init("myprogram", blocking=False)
 try:
     while True:
         code = lirc.nextcode()
