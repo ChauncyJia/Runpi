@@ -1,5 +1,5 @@
 #硬件：RaspiberryPi 4B
-#连接方式：GPIO19 (board:pin35) ---  连接小灯
+#连接方式：BCM19 (board:pin35) ---  连接小灯
 #         GND OV (board:pin25) ---  连接小灯另一端
 #内容: 运行程序，小灯闪烁
 

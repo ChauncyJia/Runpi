@@ -1,6 +1,6 @@
 #硬件：RaspiberryPi 4B  + DS18B20
 #连接方式： pin2(5V) --- DS18B20 VCC 
-#          pin7(BCM:GPIO4) --- DS18B20 D0
+#          pin7(BCM:4) --- DS18B20 D0
 #          GND OV (board:pin6) ---  DS18B20 GND
 #内容: 运行程序，每隔5s读取温度并打印出来，CTRL+C 退出
 import os

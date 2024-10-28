@@ -1,0 +1,34 @@
+## 安装lirc并配置
+- 安装
+  - sudo apt update
+  - sudo apt install lirc
+- 修改配置文件
+  - sudo nano /etc/lirc/lirc_options.conf
+  - 将以下内容修改
+    - drive=default
+    - device=/dev/lirc0
+  - 修改树莓派配置文件
+    - sudo nano /boot/firmware/config.txt
+      - 增加以下内容
+      - dtoverlay=gpio-ir,gpio-pin=17
+## 测试lirc
+- 测试反应
+  - mode2 -d /dev/lirc0
+  - 按遥控的按键会有反应
+- 按键配置
+  - mode2 -m -d /dev/lirc0
+  - 输入以上，并按遥控按键会收到键码
+  - irrecord -f -d /dev/lirc0
+  - 以上是手动创建配置文件方式
+- 自动配置文件
+  - 将本录下的文件key.lirc.conf移动到目录下
+  - sudo cp key.lirc.conf  /etc/lirc/lircd.conf.d/key.lirc.conf
+  - sudo reboot
+- 测试
+  - 输入irw
+  - 检查显示是否是配置的键值   
+## 安装python lirc
+  - conda create -n lirc python=3.9 
+  - conda activate lirc
+  - sudo apt install liblircclient-dev
+  - git pip install python-lirc

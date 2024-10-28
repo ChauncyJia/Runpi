@@ -1,5 +1,5 @@
 #硬件：RaspiberryPi 4B
-#连接方式：GPIO17 (board:pin11) ---  连接开关一端
+#连接方式：BCM17 (board:pin11) ---  连接开关一端
 #         GND OV (board:pin39) ---  连接开关另一端
 #         GPIO4 (board:pin7) ---  连接led一端
 #         GND OV (board:pin39) ---  连接led另一端

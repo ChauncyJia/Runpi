@@ -1,5 +1,5 @@
 #硬件：RaspiberryPi 4B
-#连接方式：GPIO4 (board:pin7) ---  连接led一端
+#连接方式：BCM4 (board:pin7) ---  连接led一端
 #         GND OV (board:pin39) ---  连接led另一端
 #内容：运行程序，小灯从最暗逐渐变亮 键盘中断
 

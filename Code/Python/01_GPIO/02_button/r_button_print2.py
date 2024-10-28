@@ -1,5 +1,5 @@
 #硬件：RaspiberryPi 4B
-#连接方式：GPIO26 (board:pin37) ---  连接开关一端
+#连接方式：BCM26 (board:pin37) ---  连接开关一端
 #         GND OV (board:pin39) ---  连接开关另一端
 #内容: 运行程序，检测开关是否按下 键盘中断
 
